@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clock</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <link rel="icon" href="./clock.ico" type = "image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./keyframes.css" />
+</head>
+<body>
+    <span class="creds">Hadi Abu Hamed @ GoneWithTheRiver 2021</span>
+    <div class="container">
+        <class class="split-right">
+            <div id="hours-tenths">
+                E
+            </div>
+        </class>
+        <class class="split-right">
+            <div id="hours-firsts">
+                R
+            </div>
+        </class>       
+        <class class="split-right">
+            <div id="minutes-tenths">
+                R
+            </div>
+        </class>
+        <class class="">
+            <div id='minutes-firsts'>
+                !
+            </div>
+        </class>
+    </div>    
+    <!-- <footer class='footer'>
+        Hadi Abu Hamed @ GoneWithTheRiver 2021
+    </footer> -->
+    <script>
+        const setCurrentTime = () =>{
+            let time = new Date();
+            let minutesTenths = time.getMinutes()/10>1 ? ("" + time.getMinutes())[0] : '0'; //string
+            let minutesFirsts = time.getMinutes()/10>1 ? (""+time.getMinutes())[1]: ("" + time.getMinutes())[0] ; //string
+            let hoursTenths = (""+time.getHours())[0]; //string
+            let hoursFirsts = (""+time.getHours())[1]; //string
+            
+            document.getElementById("minutes-firsts").innerHTML = minutesFirsts;
+            document.getElementById("minutes-tenths").innerHTML = minutesTenths;
+            document.getElementById("hours-firsts").innerHTML = hoursFirsts;
+            document.getElementById("hours-tenths").innerHTML = hoursTenths;
+        }
+                
+        setCurrentTime();
+
+        setInterval(function(){ 
+            setCurrentTime();
+        }, 1000);
+
+        // document.getElementById('hours-tenths').style.color = 'red';
+    </script>
+
+</body>
+</html>
