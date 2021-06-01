@@ -34,16 +34,13 @@
             </div>
         </class>
     </div>    
-    <!-- <footer class='footer'>
-        Hadi Abu Hamed @ GoneWithTheRiver 2021
-    </footer> -->
     <script>
         const setCurrentTime = () =>{
             let time = new Date();
             let minutesTenths = time.getMinutes()/10>1 ? ("" + time.getMinutes())[0] : '0'; //string
             let minutesFirsts = time.getMinutes()/10>1 ? (""+time.getMinutes())[1]: ("" + time.getMinutes())[0] ; //string
-            let hoursTenths = (""+time.getHours())[0]; //string
-            let hoursFirsts = (""+time.getHours())[1]; //string
+            let hoursTenths = time.getHours()/10>1 ?(""+time.getHours())[0]: '0'; //string
+            let hoursFirsts = time.getHours()/10>1 ? (""+time.getHours())[1]: ("" + time.getHours())[0]; //string
             
             document.getElementById("minutes-firsts").innerHTML = minutesFirsts;
             document.getElementById("minutes-tenths").innerHTML = minutesTenths;
