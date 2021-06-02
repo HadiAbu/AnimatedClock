@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
-    <link rel="icon" href="./clock.ico" type = "image/x-icon">
+    <!-- <link rel="icon" href="./clock.ico" type = "image/x-icon"> -->
     <link rel="stylesheet" type="text/css" href="./keyframes.css" />
 </head>
 <body>
@@ -15,46 +15,122 @@
     <div class="container">
         <class class="split-right">
             <div id="hours-tenths">
-                E
+                H
             </div>
         </class>
         <class class="split-right">
             <div id="hours-firsts">
-                R
+                A
             </div>
         </class>       
         <class class="split-right">
             <div id="minutes-tenths">
-                R
+                D
             </div>
         </class>
         <class class="">
             <div id='minutes-firsts'>
-                !
+                I
             </div>
         </class>
     </div>    
     <script>
+        const triggerAnimation = (elem, value) => {
+            let element = document.getElementById(elem);
+            if(element.innerHTML !== value){
+                element.style.opacity = 0;
+                setTimeout(()=>{
+                    element.innerHTML= value;
+                    element.style.opacity = 1;
+                },1000);
+            }
+        }
+        const setInitialPositionMax2 = (elem = "hours-tenths",val='0') =>{
+            let element = document.getElementById(elem);
+            let pos = 0;
+            switch(val){
+                case '0': pos=0.1;
+                    break;
+                case '1': pos=0.5;
+                    break; 
+                case '2': pos=1;
+                    break;
+            }
+            element.style.transform = `translateY(${-30*pos}vh)`;
+        }
+        const setInitialPositionMax5 = (elem = "minutes-tenths", val) =>{
+            let element = document.getElementById(elem);
+            let pos = 0;
+            switch(val){
+                case '0': pos=0;
+                    break;
+                case '1': pos=0.2;
+                    break; 
+                case '2': pos=0.4;
+                    break;
+                case '3': pos=0.6;
+                    break;
+                case '4': pos=0.8;
+                    break;
+                case '5': pos=1;
+                    break;
+            }
+            element.style.transform = `translateY(${-30*pos}vh)`;
+        }
+        const setInitialPositionMax9 = (elem = "minutes-firsts", val) =>{
+            let element = document.getElementById(elem);
+            let pos = 0;
+            switch(val){
+                case '0': pos=0.1;
+                    break;
+                case '1': pos=0.2;
+                    break; 
+                case '2': pos=0.3;
+                    break;
+                case '3': pos=0.4
+                    break;
+                case '4': pos=0.5;
+                    break;
+                case '5': pos=0.6;
+                    break;
+                case '6': pos=0.7;
+                    break; 
+                case '7': pos=0.8;
+                    break;
+                case '8': pos=0.9;
+                    break;
+                case '9': pos=1;
+                    break;
+            }
+            element.style.transform = `translateY(${-30*pos}vh)`;
+        }
         const setCurrentTime = () =>{
             let time = new Date();
-            let minutesTenths = time.getMinutes()/10>1 ? ("" + time.getMinutes())[0] : '0'; //string
-            let minutesFirsts = time.getMinutes()/10>1 ? (""+time.getMinutes())[1]: ("" + time.getMinutes())[0] ; //string
-            let hoursTenths = time.getHours()/10>1 ?(""+time.getHours())[0]: '0'; //string
-            let hoursFirsts = time.getHours()/10>1 ? (""+time.getHours())[1]: ("" + time.getHours())[0]; //string
+
+            let minutesTenths = time.getMinutes()/10 >= 1 ? ("" + time.getMinutes())[0] : '0'; //string
+            let minutesFirsts = time.getMinutes()/10 >= 1 ? ("" + time.getMinutes())[1] : ("" + time.getMinutes())[0] ; //string
+            let hoursTenths = time.getHours()/10 >= 1 ?("" + time.getHours())[0] : '0'; //string
+            let hoursFirsts = time.getHours()/10 >= 1 ? ("" + time.getHours())[1] : ("" + time.getHours())[0]; //string
             
-            document.getElementById("minutes-firsts").innerHTML = minutesFirsts;
-            document.getElementById("minutes-tenths").innerHTML = minutesTenths;
-            document.getElementById("hours-firsts").innerHTML = hoursFirsts;
-            document.getElementById("hours-tenths").innerHTML = hoursTenths;
-        }
-                
+            triggerAnimation("minutes-firsts", minutesFirsts); 
+            triggerAnimation("hours-firsts", hoursFirsts);
+            triggerAnimation("minutes-tenths", minutesTenths);
+            triggerAnimation("hours-tenths", hoursTenths);
+
+            setInitialPositionMax2("hours-tenths", hoursTenths.toString());
+            setInitialPositionMax9("hours-firsts", hoursFirsts.toString());
+            setInitialPositionMax9("minutes-firsts", minutesFirsts.toString());
+            setInitialPositionMax5("minutes-tenths", minutesTenths.toString());
+
+        }        
+
         setCurrentTime();
 
         setInterval(function(){ 
             setCurrentTime();
         }, 1000);
 
-        // document.getElementById('hours-tenths').style.color = 'red';
+        
     </script>
 
 </body>
