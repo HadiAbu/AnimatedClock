@@ -43,7 +43,7 @@ div{
    -o-transition: opacity 1s ease-in-out;
    transition: opacity 1s ease-in-out;
    /* transform-origin: 50% 100%; */
-   /* transform-origin: 30vh; */
+   transform-origin: 25vh;
    /* padding-top: 40px; */
 }
 #hours-tenths{
@@ -75,6 +75,9 @@ div{
   animation: pulse 60s infinite ease-in-out;
 }
 @keyframes pulse {
+  /* 0% { */
+    /* transform: translateY(25vh); */
+  /* } */
   100% {
     transform: translateY(-25vh);
   }
