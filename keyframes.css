@@ -5,7 +5,7 @@
 }
 html,
 body {
-  font-size: 6em;  
+  font-size: 5.5em;  
   overflow: hidden; 
   font-family: 'Monoton', cursive;
 }
@@ -74,9 +74,16 @@ div{
   -o-animation: pulse 60s infinite ease-in-out;
   animation: pulse 60s infinite ease-in-out;
 }
-
 @keyframes pulse {
   100% {
-    transform: translateY(-30vh);
+    transform: translateY(-25vh);
   }
+}
+@media screen and (max-width: 720px){
+  body {
+    font-size: 0.9em; 
+  }
+  /* .container{
+    height: 10vh;
+  } */
 }

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
-    <!-- <link rel="icon" href="./clock.ico" type = "image/x-icon"> -->
+    <link rel="icon" href="./clock.svg" type = "image/x-icon">
     <link rel="stylesheet" type="text/css" href="./keyframes.css" />
 </head>
 <body>
@@ -49,60 +49,60 @@
             let element = document.getElementById(elem);
             let pos = 0;
             switch(val){
-                case '0': pos=0.1;
+                case '0': pos=1;
                     break;
-                case '1': pos=0.5;
+                case '1': pos=0;
                     break; 
-                case '2': pos=1;
+                case '2': pos=-1;
                     break;
             }
-            element.style.transform = `translateY(${-30*pos}vh)`;
+            element.style.transform = `translateY(${25*pos}vh)`;
         }
         const setInitialPositionMax5 = (elem = "minutes-tenths", val) =>{
             let element = document.getElementById(elem);
             let pos = 0;
             switch(val){
-                case '0': pos=0;
+                case '0': pos=1;
                     break;
-                case '1': pos=0.2;
+                case '1': pos=0.5;
                     break; 
-                case '2': pos=0.4;
+                case '2': pos=0;
                     break;
-                case '3': pos=0.6;
+                case '3': pos=-0.4;
                     break;
-                case '4': pos=0.8;
+                case '4': pos=-0.8;
                     break;
-                case '5': pos=1;
+                case '5': pos=-1;
                     break;
             }
-            element.style.transform = `translateY(${-30*pos}vh)`;
+            element.style.transform = `translateY(${25*pos}vh)`;
         }
         const setInitialPositionMax9 = (elem = "minutes-firsts", val) =>{
             let element = document.getElementById(elem);
             let pos = 0;
             switch(val){
-                case '0': pos=0.1;
+                case '0': pos=1;
                     break;
-                case '1': pos=0.2;
+                case '1': pos=0.8;
                     break; 
-                case '2': pos=0.3;
+                case '2': pos=0.6;
                     break;
-                case '3': pos=0.4
+                case '3': pos=0.4;
                     break;
-                case '4': pos=0.5;
+                case '4': pos=0.2;
                     break;
-                case '5': pos=0.6;
+                case '5': pos=0;
                     break;
-                case '6': pos=0.7;
+                case '6': pos=-0.3;
                     break; 
-                case '7': pos=0.8;
+                case '7': pos=-0.5;
                     break;
-                case '8': pos=0.9;
+                case '8': pos=-0.7;
                     break;
-                case '9': pos=1;
+                case '9': pos=-1;
                     break;
             }
-            element.style.transform = `translateY(${-30*pos}vh)`;
+            element.style.transform = `translateY(${25*pos}vh)`;
         }
         const setCurrentTime = () =>{
             let time = new Date();
